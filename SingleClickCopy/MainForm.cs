@@ -84,7 +84,7 @@ namespace SingleClickCopy
             // Clear text box
             this.itemTextBox.Clear();
 
-            // Update items in status label
+            // Update item count in status label
             this.UpdateStatus();
         }
 
@@ -145,7 +145,21 @@ namespace SingleClickCopy
         /// <param name="e">Event arguments.</param>
         private void OnDeleteButtonClick(object sender, EventArgs e)
         {
-            // TODO Add code 
+            // Check for a selected item
+            if (this.clipboardCopyListBox.SelectedIndex == -1)
+            {
+                // Advise user
+                MessageBox.Show("Please select an item to delete!", "Select item", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                // Halt flow
+                return;
+            }
+
+            // Delete item
+            this.clipboardCopyListBox.Items.RemoveAt(this.clipboardCopyListBox.SelectedIndex);
+
+            // Update item count in status label
+            this.UpdateStatus();
         }
 
         /// <summary>
