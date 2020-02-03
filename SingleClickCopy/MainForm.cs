@@ -135,7 +135,8 @@ namespace SingleClickCopy
         /// <param name="e">Event arguments.</param>
         private void OnClipboardCopyListBoxSelectedIndexChanged(object sender, EventArgs e)
         {
-            // TODO Add code 
+            // Set item text box
+            this.itemTextBox.Text = this.clipboardCopyListBox.SelectedItem.ToString();
         }
 
         /// <summary>
