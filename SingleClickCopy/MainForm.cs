@@ -58,7 +58,15 @@ namespace SingleClickCopy
         /// <param name="e">Event arguments.</param>
         private void OnAddButtonClick(object sender, EventArgs e)
         {
-            /* Add item to list */
+            // Check for some text length
+            if (this.itemTextBox.Text.Length == 0)
+            {
+                // Advise user
+                MessageBox.Show("Please add item text!", "No item text", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                // Halt flow
+                return;
+            }
 
             // Check for a duplicate
             if (this.clipboardCopyListBox.Items.Contains(this.itemTextBox.Text))
@@ -96,7 +104,28 @@ namespace SingleClickCopy
         /// <param name="e">Event arguments.</param>
         private void OnEditButtonClick(object sender, EventArgs e)
         {
-            // TODO Add code
+            // Check for some text length
+            if (this.itemTextBox.Text.Length == 0)
+            {
+                // Advise user
+                MessageBox.Show("Please add item text to edit!", "No item text", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                // Halt flow
+                return;
+            }
+
+            // Check for a selected item
+            if (this.clipboardCopyListBox.SelectedIndex == -1)
+            {
+                // Advise user
+                MessageBox.Show("Please select an item to edit!", "Select item", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                // Halt flow
+                return;
+            }
+
+            // Edit item
+            this.clipboardCopyListBox.Items[this.clipboardCopyListBox.SelectedIndex] = this.itemTextBox.Text;
         }
 
         /// <summary>
