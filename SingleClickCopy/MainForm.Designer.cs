@@ -293,6 +293,7 @@ namespace SingleClickCopy
         	this.clipboardCopyListBox.Name = "clipboardCopyListBox";
         	this.clipboardCopyListBox.Size = new System.Drawing.Size(278, 142);
         	this.clipboardCopyListBox.TabIndex = 5;
+        	this.clipboardCopyListBox.MouseClick += new System.Windows.Forms.MouseEventHandler(this.OnClipboardCopyListBoxMouseClick);
         	this.clipboardCopyListBox.SelectedIndexChanged += new System.EventHandler(this.OnClipboardCopyListBoxSelectedIndexChanged);
         	// 
         	// clearAllButton

@@ -140,6 +140,37 @@ namespace SingleClickCopy
         }
 
         /// <summary>
+        /// Handles the clipboard copy list box mouse click event.
+        /// </summary>
+        /// <param name="sender">Sender object.</param>
+        /// <param name="e">Event arguments.</param>
+        private void OnClipboardCopyListBoxMouseClick(object sender, MouseEventArgs e)
+        {
+            // Check for a selected item
+            if (this.clipboardCopyListBox.Items.Count == 0)
+            {
+                // Advise user
+                MessageBox.Show("Please add items to copy", "No items", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                // Halt flow
+                return;
+            }
+
+            // Check for a selected item
+            if (this.clipboardCopyListBox.SelectedIndex == -1)
+            {
+                // Advise user
+                MessageBox.Show("Please select an item to copy", "Select item", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                // Halt flow
+                return;
+            }
+
+            // Copy selected item to clipboard
+            Clipboard.SetText(this.clipboardCopyListBox.SelectedItem.ToString());
+        }
+
+        /// <summary>
         /// Hanfles the delete button click event.
         /// </summary>
         /// <param name="sender">Sender object.</param>
