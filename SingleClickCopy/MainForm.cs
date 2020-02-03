@@ -75,6 +75,18 @@ namespace SingleClickCopy
 
             // Clear text box
             this.itemTextBox.Clear();
+
+            // Update items in status label
+            this.UpdateStatus();
+        }
+
+        /// <summary>
+        /// Updates the status.
+        /// </summary>
+        private void UpdateStatus()
+        {
+            // Update list count
+            this.toolStripStatusLabel.Text = $"Items in list: {this.clipboardCopyListBox.Items.Count}";
         }
 
         /// <summary>
