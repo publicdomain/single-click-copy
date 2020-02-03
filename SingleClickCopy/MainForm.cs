@@ -169,7 +169,28 @@ namespace SingleClickCopy
         /// <param name="e">Event arguments.</param>
         private void OnClearAllButtonClick(object sender, EventArgs e)
         {
-            // TODO Add code
+            // Check for items
+            if (this.clipboardCopyListBox.Items.Count == 0)
+            {
+                // Advise user
+                MessageBox.Show("No items to clear", "Empty", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                // Halt flow
+                return;
+            }
+
+            // Ask user
+            if (MessageBox.Show($"Would you like to clear {this.clipboardCopyListBox.Items.Count} item{(this.clipboardCopyListBox.Items.Count > 1 ? "s" : string.Empty)}?", "Clear all", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) == DialogResult.No)
+            {
+                // Halt flow
+                return;
+            }
+
+            // Clear all items
+            this.clipboardCopyListBox.Items.Clear();
+
+            // Update item count
+            this.UpdateStatus();
         }
 
         /// <summary>
