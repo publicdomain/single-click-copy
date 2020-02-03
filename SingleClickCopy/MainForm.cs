@@ -58,7 +58,23 @@ namespace SingleClickCopy
         /// <param name="e">Event arguments.</param>
         private void OnAddButtonClick(object sender, EventArgs e)
         {
-            /* TODO Add item to list */
+            /* Add item to list */
+
+            // Check for a duplicate
+            if (this.clipboardCopyListBox.Items.Contains(this.itemTextBox.Text))
+            {
+                // Advise user
+                MessageBox.Show("Item already exists!", "Duplicate", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
+                // Halt flow
+                return;
+            }
+
+            // Add item
+            this.clipboardCopyListBox.Items.Add(this.itemTextBox.Text);
+
+            // Clear text box
+            this.itemTextBox.Clear();
         }
 
         /// <summary>
