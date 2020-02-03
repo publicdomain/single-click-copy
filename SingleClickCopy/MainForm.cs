@@ -134,14 +134,18 @@ namespace SingleClickCopy
         }
 
         /// <summary>
-        /// Handles the clipboard copy list box selected index changed.
+        /// Handles the clipboard copy list box selected index changed event.
         /// </summary>
         /// <param name="sender">Sender object.</param>
         /// <param name="e">Event arguments.</param>
         private void OnClipboardCopyListBoxSelectedIndexChanged(object sender, EventArgs e)
         {
-            // Set item text box
-            this.itemTextBox.Text = this.clipboardCopyListBox.SelectedItem.ToString();
+            // TODO Check for selected item with text length [Verify if truly needed on alternate runtime i.e. Mono]
+            if (this.clipboardCopyListBox.SelectedIndex > -1 && this.clipboardCopyListBox.SelectedItem.ToString().Length > 0)
+            {
+                // Set item text box
+                this.itemTextBox.Text = this.clipboardCopyListBox.SelectedItem.ToString();
+            }
         }
 
         /// <summary>
