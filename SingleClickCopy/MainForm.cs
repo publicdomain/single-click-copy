@@ -62,7 +62,7 @@ namespace SingleClickCopy
             if (this.itemTextBox.Text.Length == 0)
             {
                 // Advise user
-                MessageBox.Show("Please add item text!", "No item text", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Please add item text", "No item text", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                 // Halt flow
                 return;
@@ -72,7 +72,7 @@ namespace SingleClickCopy
             if (this.clipboardCopyListBox.Items.Contains(this.itemTextBox.Text))
             {
                 // Advise user
-                MessageBox.Show("Item already exists!", "Duplicate", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Item already exists", "Duplicate", MessageBoxButtons.OK, MessageBoxIcon.Warning);
 
                 // Halt flow
                 return;
@@ -108,7 +108,7 @@ namespace SingleClickCopy
             if (this.itemTextBox.Text.Length == 0)
             {
                 // Advise user
-                MessageBox.Show("Please add item text to edit!", "No item text", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Please add item text to edit", "No item text", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                 // Halt flow
                 return;
@@ -118,7 +118,7 @@ namespace SingleClickCopy
             if (this.clipboardCopyListBox.SelectedIndex == -1)
             {
                 // Advise user
-                MessageBox.Show("Please select an item to edit!", "Select item", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Please select an item to edit", "Select item", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                 // Halt flow
                 return;
@@ -149,7 +149,7 @@ namespace SingleClickCopy
             if (this.clipboardCopyListBox.SelectedIndex == -1)
             {
                 // Advise user
-                MessageBox.Show("Please select an item to delete!", "Select item", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Please select an item to delete", "Select item", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                 // Halt flow
                 return;
