@@ -110,6 +110,16 @@ namespace SingleClickCopy
         }
 
         /// <summary>
+        /// Hanfles the delete button click event.
+        /// </summary>
+        /// <param name="sender">Sender object.</param>
+        /// <param name="e">Event arguments.</param>
+        private void OnDeleteButtonClick(object sender, EventArgs e)
+        {
+            // TODO Add code 
+        }
+
+        /// <summary>
         /// Handles the clear all button click event.
         /// </summary>
         /// <param name="sender">Sender object.</param>

@@ -57,10 +57,11 @@ namespace SingleClickCopy
         	this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
         	this.addOrEditTextLabel = new System.Windows.Forms.Label();
         	this.itemTextBox = new System.Windows.Forms.TextBox();
-        	this.clearAllButton = new System.Windows.Forms.Button();
         	this.addButton = new System.Windows.Forms.Button();
         	this.editButton = new System.Windows.Forms.Button();
         	this.clipboardCopyListBox = new System.Windows.Forms.ListBox();
+        	this.clearAllButton = new System.Windows.Forms.Button();
+        	this.deleteButton = new System.Windows.Forms.Button();
         	this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
         	this.saveFileDialog = new System.Windows.Forms.SaveFileDialog();
         	this.menuStrip.SuspendLayout();
@@ -214,10 +215,11 @@ namespace SingleClickCopy
         	this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
         	this.tableLayoutPanel1.Controls.Add(this.addOrEditTextLabel, 0, 0);
         	this.tableLayoutPanel1.Controls.Add(this.itemTextBox, 0, 1);
-        	this.tableLayoutPanel1.Controls.Add(this.clearAllButton, 0, 4);
         	this.tableLayoutPanel1.Controls.Add(this.addButton, 0, 2);
         	this.tableLayoutPanel1.Controls.Add(this.editButton, 1, 2);
         	this.tableLayoutPanel1.Controls.Add(this.clipboardCopyListBox, 0, 3);
+        	this.tableLayoutPanel1.Controls.Add(this.clearAllButton, 1, 4);
+        	this.tableLayoutPanel1.Controls.Add(this.deleteButton, 0, 4);
         	this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
         	this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 24);
         	this.tableLayoutPanel1.Name = "tableLayoutPanel1";
@@ -251,19 +253,6 @@ namespace SingleClickCopy
         	this.itemTextBox.Name = "itemTextBox";
         	this.itemTextBox.Size = new System.Drawing.Size(278, 22);
         	this.itemTextBox.TabIndex = 1;
-        	// 
-        	// clearAllButton
-        	// 
-        	this.tableLayoutPanel1.SetColumnSpan(this.clearAllButton, 2);
-        	this.clearAllButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
-        	this.clearAllButton.Location = new System.Drawing.Point(3, 226);
-        	this.clearAllButton.Margin = new System.Windows.Forms.Padding(3, 0, 3, 0);
-        	this.clearAllButton.Name = "clearAllButton";
-        	this.clearAllButton.Size = new System.Drawing.Size(278, 23);
-        	this.clearAllButton.TabIndex = 2;
-        	this.clearAllButton.Text = "&Clear all items";
-        	this.clearAllButton.UseVisualStyleBackColor = true;
-        	this.clearAllButton.Click += new System.EventHandler(this.OnClearAllButtonClick);
         	// 
         	// addButton
         	// 
@@ -306,6 +295,32 @@ namespace SingleClickCopy
         	this.clipboardCopyListBox.TabIndex = 5;
         	this.clipboardCopyListBox.SelectedIndexChanged += new System.EventHandler(this.OnClipboardCopyListBoxSelectedIndexChanged);
         	// 
+        	// clearAllButton
+        	// 
+        	this.clearAllButton.Dock = System.Windows.Forms.DockStyle.Fill;
+        	this.clearAllButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
+        	this.clearAllButton.Location = new System.Drawing.Point(145, 226);
+        	this.clearAllButton.Margin = new System.Windows.Forms.Padding(3, 0, 3, 0);
+        	this.clearAllButton.Name = "clearAllButton";
+        	this.clearAllButton.Size = new System.Drawing.Size(136, 25);
+        	this.clearAllButton.TabIndex = 2;
+        	this.clearAllButton.Text = "&Clear all";
+        	this.clearAllButton.UseVisualStyleBackColor = true;
+        	this.clearAllButton.Click += new System.EventHandler(this.OnClearAllButtonClick);
+        	// 
+        	// deleteButton
+        	// 
+        	this.deleteButton.Dock = System.Windows.Forms.DockStyle.Fill;
+        	this.deleteButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
+        	this.deleteButton.Location = new System.Drawing.Point(3, 226);
+        	this.deleteButton.Margin = new System.Windows.Forms.Padding(3, 0, 3, 0);
+        	this.deleteButton.Name = "deleteButton";
+        	this.deleteButton.Size = new System.Drawing.Size(136, 25);
+        	this.deleteButton.TabIndex = 2;
+        	this.deleteButton.Text = "&Delete";
+        	this.deleteButton.UseVisualStyleBackColor = true;
+        	this.deleteButton.Click += new System.EventHandler(this.OnDeleteButtonClick);
+        	// 
         	// openFileDialog
         	// 
         	this.openFileDialog.DefaultExt = "txt";
@@ -340,6 +355,7 @@ namespace SingleClickCopy
         	this.ResumeLayout(false);
         	this.PerformLayout();
         }
+        private System.Windows.Forms.Button deleteButton;
         private System.Windows.Forms.SaveFileDialog saveFileDialog;
         private System.Windows.Forms.OpenFileDialog openFileDialog;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
