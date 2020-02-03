@@ -40,6 +40,11 @@ namespace SingleClickCopy
         private string friendlyName = "Single Click Copy";
 
         /// <summary>
+        /// The copy count.
+        /// </summary>
+        private int copyCount = 0;
+
+        /// <summary>
         /// Initializes a new instance of the <see cref="T:SingleClickCopy.MainForm"/> class.
         /// </summary>
         public MainForm()
@@ -89,12 +94,12 @@ namespace SingleClickCopy
         }
 
         /// <summary>
-        /// Updates the status.
+        /// Updates the status label with item and copy count.
         /// </summary>
         private void UpdateStatus()
         {
             // Update list count
-            this.toolStripStatusLabel.Text = $"Items in list: {this.clipboardCopyListBox.Items.Count}";
+            this.toolStripStatusLabel.Text = $"Items in list: {this.clipboardCopyListBox.Items.Count} / Copy count: {this.copyCount}";
         }
 
         /// <summary>
@@ -168,6 +173,12 @@ namespace SingleClickCopy
 
             // Copy selected item to clipboard
             Clipboard.SetText(this.clipboardCopyListBox.SelectedItem.ToString());
+
+            // Increase copy count
+            this.copyCount++;
+
+            // Update copy count in status label
+            this.UpdateStatus();
         }
 
         /// <summary>
