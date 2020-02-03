@@ -61,6 +61,7 @@ namespace SingleClickCopy
         	this.addButton = new System.Windows.Forms.Button();
         	this.editButton = new System.Windows.Forms.Button();
         	this.clipboardCopyListBox = new System.Windows.Forms.ListBox();
+        	this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
         	this.menuStrip.SuspendLayout();
         	this.statusStrip.SuspendLayout();
         	this.tableLayoutPanel1.SuspendLayout();
@@ -304,6 +305,11 @@ namespace SingleClickCopy
         	this.clipboardCopyListBox.TabIndex = 5;
         	this.clipboardCopyListBox.SelectedIndexChanged += new System.EventHandler(this.OnClipboardCopyListBoxSelectedIndexChanged);
         	// 
+        	// openFileDialog
+        	// 
+        	this.openFileDialog.DefaultExt = "txt";
+        	this.openFileDialog.Filter = "TXT Files (*.txt)|*.txt|All files (*.*)|*.*";
+        	// 
         	// MainForm
         	// 
         	this.AcceptButton = this.addButton;
@@ -326,6 +332,7 @@ namespace SingleClickCopy
         	this.ResumeLayout(false);
         	this.PerformLayout();
         }
+        private System.Windows.Forms.OpenFileDialog openFileDialog;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
         private System.Windows.Forms.ToolStripMenuItem originalThreadRedditcomToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem sourceCodeGithubcomToolStripMenuItem;
