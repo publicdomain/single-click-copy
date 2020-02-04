@@ -54,6 +54,9 @@ namespace SingleClickCopy
 
             // Set semantic version
             this.semanticVersion = this.assemblyVersion.Major + "." + this.assemblyVersion.Minor + "." + this.assemblyVersion.Build;
+
+            // Focus text box
+            this.ActiveControl = this.itemTextBox;
         }
 
         /// <summary>
@@ -70,7 +73,7 @@ namespace SingleClickCopy
                 MessageBox.Show("Please add item text", "No item text", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                 // Halt flow
-                return;
+                goto focusExit;
             }
 
             // Check for a duplicate
@@ -80,7 +83,7 @@ namespace SingleClickCopy
                 MessageBox.Show("Item already exists", "Duplicate", MessageBoxButtons.OK, MessageBoxIcon.Warning);
 
                 // Halt flow
-                return;
+                goto focusExit;
             }
 
             // Add item
@@ -91,6 +94,12 @@ namespace SingleClickCopy
 
             // Update item count in status label
             this.UpdateStatus();
+
+        // Focus text box and exit function
+        focusExit:
+
+            // Focus text box
+            this.ActiveControl = this.itemTextBox;
         }
 
         /// <summary>
@@ -116,7 +125,7 @@ namespace SingleClickCopy
                 MessageBox.Show("Please add item text to edit", "No item text", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                 // Halt flow
-                return;
+                goto focusExit;
             }
 
             // Check for a selected item
@@ -126,11 +135,17 @@ namespace SingleClickCopy
                 MessageBox.Show("Please select an item to edit", "Select item", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                 // Halt flow
-                return;
+                goto focusExit;
             }
 
             // Edit item
             this.clipboardCopyListBox.Items[this.clipboardCopyListBox.SelectedIndex] = this.itemTextBox.Text;
+
+        // Focus text box and exit function
+        focusExit:
+
+            // Focus text box
+            this.ActiveControl = this.itemTextBox;
         }
 
         /// <summary>
@@ -140,7 +155,7 @@ namespace SingleClickCopy
         /// <param name="e">Event arguments.</param>
         private void OnClipboardCopyListBoxSelectedIndexChanged(object sender, EventArgs e)
         {
-            // TODO Check for selected item with text length [Verify if truly needed on alternate runtime i.e. Mono]
+            // TODO Check for selected item with text length [Verify if truly needed on runtimes such as Mono]
             if (this.clipboardCopyListBox.SelectedIndex > -1 && this.clipboardCopyListBox.SelectedItem.ToString().Length > 0)
             {
                 // Set item text box
@@ -162,7 +177,7 @@ namespace SingleClickCopy
                 MessageBox.Show("Please add items to copy", "No items", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                 // Halt flow
-                return;
+                goto focusExit;
             }
 
             // Check for a selected item
@@ -172,7 +187,7 @@ namespace SingleClickCopy
                 MessageBox.Show("Please select an item to copy", "Select item", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                 // Halt flow
-                return;
+                goto focusExit;
             }
 
             // Copy selected item to clipboard
@@ -183,6 +198,12 @@ namespace SingleClickCopy
 
             // Update copy count in status label
             this.UpdateStatus();
+
+        // Focus text box and exit function
+        focusExit:
+
+            // Focus text box
+            this.ActiveControl = this.itemTextBox;
         }
 
         /// <summary>
@@ -199,7 +220,7 @@ namespace SingleClickCopy
                 MessageBox.Show("Please select an item to delete", "Select item", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                 // Halt flow
-                return;
+                goto focusExit;
             }
 
             // Delete item
@@ -207,6 +228,12 @@ namespace SingleClickCopy
 
             // Update item count in status label
             this.UpdateStatus();
+
+        // Focus text box and exit function
+        focusExit:
+
+            // Focus text box
+            this.ActiveControl = this.itemTextBox;
         }
 
         /// <summary>
@@ -223,14 +250,14 @@ namespace SingleClickCopy
                 MessageBox.Show("No items to clear", "Empty", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                 // Halt flow
-                return;
+                goto focusExit;
             }
 
             // Ask user
-            if (MessageBox.Show($"Would you like to clear {this.clipboardCopyListBox.Items.Count} item{(this.clipboardCopyListBox.Items.Count > 1 ? "s" : string.Empty)}?", "Clear all", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) == DialogResult.No)
+            if (MessageBox.Show($"Would you like to clear {this.clipboardCopyListBox.Items.Count} item{(this.clipboardCopyListBox.Items.Count > 1 ? "s" : string.Empty)}?", "Clear all", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1) == DialogResult.No)
             {
                 // Halt flow
-                return;
+                goto focusExit;
             }
 
             // Clear all items
@@ -238,6 +265,12 @@ namespace SingleClickCopy
 
             // Update item count
             this.UpdateStatus();
+
+        // Focus text box and exit function
+        focusExit:
+
+            // Focus text box
+            this.ActiveControl = this.itemTextBox;
         }
 
         /// <summary>
