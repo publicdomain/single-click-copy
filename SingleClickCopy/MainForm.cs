@@ -122,6 +122,27 @@ namespace SingleClickCopy
         }
 
         /// <summary>
+        /// Loads the item list.
+        /// </summary>
+        /// <param name="filePath">File path.</param>
+        private void LoadItemList(string filePath)
+        {
+            // Use stream reader
+            using (StreamReader streamReader = new StreamReader(filePath))
+            {
+                // Declare line variable
+                string line;
+
+                // Iterate file
+                while ((line = streamReader.ReadLine()) != null)
+                {
+                    // Add to list box
+                    this.clipboardCopyListBox.Items.Add(line);
+                }
+            }
+        }
+
+        /// <summary>
         /// Updates the status label with item and copy count.
         /// </summary>
         private void UpdateStatus()
