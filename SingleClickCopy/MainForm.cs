@@ -10,6 +10,7 @@ namespace SingleClickCopy
     using System.Collections.Generic;
     using System.Diagnostics;
     using System.Drawing;
+    using System.IO;
     using System.Reflection;
     using System.Windows.Forms;
     using PublicDomain;
@@ -100,6 +101,24 @@ namespace SingleClickCopy
 
             // Focus text box
             this.ActiveControl = this.itemTextBox;
+        }
+
+        /// <summary>
+        /// Saves the items list.
+        /// </summary>
+        /// <param name="filePath">File path.</param>
+        private void SaveItemList(string filePath)
+        {
+            // Use stream writer
+            using (StreamWriter streamWriter = new StreamWriter(filePath))
+            {
+                // Iterate items
+                foreach (var item in this.clipboardCopyListBox.Items)
+                {
+                    // Write current item as line
+                    streamWriter.WriteLine(item.ToString());
+                }
+            }
         }
 
         /// <summary>
