@@ -488,7 +488,7 @@ namespace SingleClickCopy
             var aboutForm = new AboutForm(
                 $"About {this.friendlyName}",
                 $"{this.friendlyName} {this.semanticVersion}",
-                $"Made for: u/sindinha{Environment.NewLine}Reddit.com{Environment.NewLine}Week #41 @ October 2019",
+                $"Made for: u/Cracker_Z{Environment.NewLine}Reddit.com{Environment.NewLine}Week #06 @ February 2020",
                 licenseText,
                 this.Icon.ToBitmap());
 
