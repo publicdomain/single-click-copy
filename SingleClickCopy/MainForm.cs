@@ -346,7 +346,12 @@ namespace SingleClickCopy
         /// <param name="e">Event arguments.</param>
         private void OnOpenToolStripMenuItemClick(object sender, EventArgs e)
         {
-            // TODO Add code
+            // Show open file dialog
+            if (this.openFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                // Load lines into list
+                this.LoadItemList(this.openFileDialog.FileName);
+            }
         }
 
         /// <summary>
