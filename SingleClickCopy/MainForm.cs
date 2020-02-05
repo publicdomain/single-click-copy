@@ -332,7 +332,11 @@ namespace SingleClickCopy
         /// <param name="e">Event arguments.</param>
         private void OnNewToolStripMenuItemClick(object sender, EventArgs e)
         {
-            // TODO Add code
+            // Remove all items in list
+            this.clipboardCopyListBox.Items.Clear();
+
+            // Update item count display
+            this.UpdateStatus();
         }
 
         /// <summary>
