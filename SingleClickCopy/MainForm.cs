@@ -361,7 +361,23 @@ namespace SingleClickCopy
         /// <param name="e">Event arguments.</param>
         private void OnSaveAsToolStripMenuItemClick(object sender, EventArgs e)
         {
-            // TODO Add code
+            // Open save file dialog
+            if (this.saveFileDialog.ShowDialog() == DialogResult.OK && this.saveFileDialog.FileName.Length > 0)
+            {
+                try
+                {
+                    // Write list items to file
+                    this.SaveItemList(this.saveFileDialog.FileName);
+                }
+                catch (Exception exception)
+                {
+                    // Inform user
+                    MessageBox.Show($"Error when saving to \"{Path.GetFileName(this.saveFileDialog.FileName)}\":{Environment.NewLine}{exception.Message}", "Save file error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+
+                // Inform user
+                MessageBox.Show($"Saved {this.clipboardCopyListBox.Items.Count} items to \"{Path.GetFileName(this.saveFileDialog.FileName)}\"", "Items saved", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
         }
 
         /// <summary>
