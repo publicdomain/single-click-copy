@@ -466,10 +466,12 @@ namespace SingleClickCopy
         /// <param name="e">Event arguments.</param>
         private void OnAboutToolStripMenuItemClick(object sender, EventArgs e)
         {
-            // TODO Set license text [Insert program icon info]
+            // Set license text
             var licenseText = $"CC0 1.0 Universal (CC0 1.0) - Public Domain Dedication{Environment.NewLine}" +
                 $"https://creativecommons.org/publicdomain/zero/1.0/legalcode{Environment.NewLine}{Environment.NewLine}" +
-                $"Libraries and icons have separate licenses.{Environment.NewLine}{Environment.NewLine}" + // Program icon info below
+                $"Libraries and icons have separate licenses.{Environment.NewLine}{Environment.NewLine}" +
+                $"Clipboard icon by OpenIcons - Pixabay License{Environment.NewLine}" +
+                $"https://pixabay.com/vectors/clipboard-clip-document-paper-copy-97590/{Environment.NewLine}{Environment.NewLine}" +
                 $"Patreon icon used according to published brand guidelines{Environment.NewLine}" +
                 $"https://www.patreon.com/brand{Environment.NewLine}{Environment.NewLine}" +
                 $"GitHub mark icon used according to published logos and usage guidelines{Environment.NewLine}" +
