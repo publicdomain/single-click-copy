@@ -285,6 +285,9 @@ namespace SingleClickCopy
             // Delete item
             this.clipboardCopyListBox.Items.RemoveAt(this.clipboardCopyListBox.SelectedIndex);
 
+            // Clear text box
+            this.itemTextBox.Clear();
+
             // Update item count in status label
             this.UpdateStatus();
 
