@@ -148,8 +148,15 @@ namespace SingleClickCopy
                 // Iterate file
                 while ((line = streamReader.ReadLine()) != null)
                 {
-                    // Add to list box
-                    this.clipboardCopyListBox.Items.Add(line);
+                    // Trim line
+                    line = line.Trim();
+
+                    // Only add lines with text
+                    if (line.Length > 0)
+                    {
+                        // Add to list box
+                        this.clipboardCopyListBox.Items.Add(line);
+                    }
                 }
             }
         }
