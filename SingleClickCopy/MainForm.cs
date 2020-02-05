@@ -46,6 +46,11 @@ namespace SingleClickCopy
         private int copyCount = 0;
 
         /// <summary>
+        /// The item list file path.
+        /// </summary>
+        private string itemListFilePath = "SingleClickCopyList.txt";
+
+        /// <summary>
         /// Initializes a new instance of the <see cref="T:SingleClickCopy.MainForm"/> class.
         /// </summary>
         public MainForm()
@@ -58,6 +63,13 @@ namespace SingleClickCopy
 
             // Focus text box
             this.ActiveControl = this.itemTextBox;
+
+            // Check for a previously-saved list
+            if (File.Exists(this.itemListFilePath))
+            {
+                // Load from disk
+                this.LoadItemList(this.itemListFilePath);
+            }
         }
 
         /// <summary>
@@ -385,6 +397,26 @@ namespace SingleClickCopy
         {
             // Open original thread @ Reddit
             Process.Start("https://www.reddit.com/r/software/comments/ewoi4z/copypaste_text_with_a_single_click_without/");
+        }
+
+        /// <summary>
+        /// Handles the main form form closing event.
+        /// </summary>
+        /// <param name="sender">Sender object.</param>
+        /// <param name="e">Event arguments.</param>
+        private void OnMainFormFormClosing(object sender, FormClosingEventArgs e)
+        {
+            // Check for items
+            if (this.clipboardCopyListBox.Items.Count > 0)
+            {
+                // Save item list to disk
+                this.SaveItemList(this.itemListFilePath);
+            }
+            else
+            {
+                // Remove the file from disk
+                File.Delete(this.itemListFilePath);
+            }
         }
 
         /// <summary>

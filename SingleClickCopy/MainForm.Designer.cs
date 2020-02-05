@@ -347,6 +347,7 @@ namespace SingleClickCopy
         	this.Name = "MainForm";
         	this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
         	this.Text = "Single-click Copy";
+        	this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.OnMainFormFormClosing);
         	this.menuStrip.ResumeLayout(false);
         	this.menuStrip.PerformLayout();
         	this.statusStrip.ResumeLayout(false);
