@@ -325,6 +325,9 @@ namespace SingleClickCopy
             // Clear all items
             this.clipboardCopyListBox.Items.Clear();
 
+            // Clear text box
+            this.itemTextBox.Clear();
+
             // Update item count
             this.UpdateStatus();
 
